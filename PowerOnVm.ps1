@@ -29,7 +29,7 @@ function PowerOnVM {
     $IDList = $response_vms.num
    
     #Selecciona que VM encender
-    $selectedID = $null
+    #$selectedID = $null
     while ($selectedID -eq $null -or $IDList -notcontains $selectedID) {
         $selectedID = Read-Host -Prompt 'Introduce el numero de VM a encender'
         if ($IDList -notcontains $selectedID) {
