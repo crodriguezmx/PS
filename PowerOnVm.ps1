@@ -51,7 +51,7 @@ function PowerOnVM {
         $response = Invoke-RestMethod -Uri $url_put_power -Method PUT -Headers $headers -Body on -ContentType $contentStyle
         $vmrest | Stop-Process
         Write-Host "Encendiendo $vm_name..."
-        Write-Host $response
+        #Write-Host $response
         #return $response
     } catch {
         Write-Error "Hubo un error al realizar la llamada a la API con el ID seleccionado: $_"
