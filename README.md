@@ -10,3 +10,8 @@ Turn On VMs on VMware Workstation 17 Pro
 5.	Close the API request
 
 ------------
+
+Code: TurnOffTimeVM.ps1
+Show power off time for each VM on ESXi or vCenter
+
+------------
