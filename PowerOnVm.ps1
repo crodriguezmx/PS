@@ -9,7 +9,7 @@ function PowerOnVM {
     #Busca las VMs registradas en Workstation
     try {
         $vmrest = Start-Process "C:\Program Files (x86)\VMware\VMware Workstation\vmrest.exe" -PassThru
-        $response_vms = Invoke-RestMethod -Uri $url_get_vm -Method GET -Headers $headers
+        $vms_list = Invoke-RestMethod -Uri $url_get_vm -Method GET -Headers $headers
         $vmrest | Stop-Process
     } catch {
         Write-Error "Hubo un error al obtener los IDs: $_"
@@ -17,8 +17,7 @@ function PowerOnVM {
     }
 
     #Numera las VMs y agrega la propiedad de "num"
-    #$numberedVMList = $response_vms | ForEach-Object -Begin {$counter=1} -Process {
-    $response_vms | ForEach-Object -Begin {$counter=1} -Process {
+    $response_vms = $vms_list | ForEach-Object -Begin {$counter=1} -Process {
         $_ | Add-Member -MemberType NoteProperty -Name "num" -Value $counter -PassThru
         $counter++
     }
