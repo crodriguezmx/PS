@@ -1,4 +1,4 @@
-function PowerOffVM {
+function PowerOffAllVM {
     #Variables
     $url_get_vm = "http://127.0.0.1:8697/api/vms"
     $contentStyle = "application/vnd.vmware.vmw.rest-v1+json"
@@ -15,6 +15,7 @@ function PowerOffVM {
         return
     }
 
+    #Muestra las VMs encendidas
     $vms_list | ForEach-Object {
         $id = $_.id
         $path = $_.path
@@ -26,6 +27,8 @@ function PowerOffVM {
             if ($($response.power_state) -eq "poweredOn") {
                 $vm = Split-Path $path -Leaf
                 Write-Host "VM: $vm, Estado: $($response.power_state)"
+                #Apaga todas las VMs
+                $response = Invoke-RestMethod -Uri $url_get_poweronvm -Method PUT -Headers $headers -Body off -ContentType $contentStyle
             } 
             
         } catch {

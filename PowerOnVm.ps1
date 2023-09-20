@@ -10,7 +10,7 @@ function PowerOnVM {
     try {
         $vmrest = Start-Process "C:\Program Files (x86)\VMware\VMware Workstation\vmrest.exe" -PassThru
         $vms_list = Invoke-RestMethod -Uri $url_get_vm -Method GET -Headers $headers
-        $vmrest | Stop-Process
+    #    $vmrest | Stop-Process
     } catch {
         Write-Error "Hubo un error al obtener los IDs: $_"
         return
@@ -46,7 +46,7 @@ function PowerOnVM {
     #Llamada API para encender VM
     $url_put_power = "http://127.0.0.1:8697/api/vms/$vm_id/power"
     try {
-        $vmrest = Start-Process "C:\Program Files (x86)\VMware\VMware Workstation\vmrest.exe" -PassThru
+    #    $vmrest = Start-Process "C:\Program Files (x86)\VMware\VMware Workstation\vmrest.exe" -PassThru
         $response = Invoke-RestMethod -Uri $url_put_power -Method PUT -Headers $headers -Body on -ContentType $contentStyle
         $vmrest | Stop-Process
         Write-Host "Encendiendo $vm_name..."
