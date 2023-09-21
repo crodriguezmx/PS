@@ -20,7 +20,7 @@ function PowerOffAllVM {
         $id = $_.id
         $path = $_.path
         $url_get_poweronvm = "http://127.0.0.1:8697/api/vms/$id/power"
-              
+        
         try {
             $response = Invoke-RestMethod -Uri $url_get_poweronvm -Method GET -Headers $headers
 
