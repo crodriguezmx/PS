@@ -1,4 +1,4 @@
-function PowerOnVM {
+#function PowerOnVM {
     #Variables
     $url_get_vm = "http://127.0.0.1:8697/api/vms"
     $contentStyle = "application/vnd.vmware.vmw.rest-v1+json"
@@ -80,5 +80,4 @@ function PowerOnVM {
     } else {
         Write-Host "Less than 2 processes with the name '$processName' found."
     }
-
-}
+#}
