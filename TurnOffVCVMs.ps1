@@ -1,7 +1,10 @@
-#Variables
-$vc = "vc.labon.casa"
-$user = "cr@labon.casa"
-$pass = "CarC211286!"
+#Get Variables from file
+$lines = Get-Content "C:\Code\vc.txt"
+
+# Asignar cada línea a una variable
+$vc = $lines[0]
+$user = $lines[1]
+$pass = $lines[2]
 
 #Conect to vCenter
 Connect-VIServer -Server $vc -User $user -Password $pass
