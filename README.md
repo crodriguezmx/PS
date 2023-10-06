@@ -1,17 +1,22 @@
 PowerShell Repository 
+-----------
+Under construction
+File: Create Certs.ps1
+File: AddDNSRecord.ps1
+File: RenewCerts.ps1
 
 ------------
-Code: PowerOnVm.ps1
-Turn On VMs on VMware Workstation 17 Pro
-1.	Open an API request for VMware Workstation 17 Pro
-2.	Get all VMs registered on VMware Workstation 17 Pro
-3.	Show a List of VMs registered and ask for a selection of VM to tun on 
-4.	Turn on the VM and adjust the physical cores used by VM
-5.	Close the API request
+File: PowerOnVm.ps1
+Turn on VMs on VMware Workstation 17 Pro
 
 ------------
-
-Code: TurnOffTimeVM.ps1
+File: TurnOffTimeVM.ps1
 Show power off time for each VM on ESXi or vCenter
 
 ------------
+File: PowerOffVm.ps1
+Turn off alls VMs on VMware Workstation 17 Pro
+
+------------
+File: TurnOffVCVMs.ps1
+Turn off all VMs on vCenter Server and the turn off all the host on the cluster
