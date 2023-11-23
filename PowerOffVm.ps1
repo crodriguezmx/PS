@@ -23,7 +23,7 @@ $vms_list | ForEach-Object {
         $response = Invoke-RestMethod -Uri $url_get_poweronvm -Method GET -Headers $headers
         if ($($response.power_state) -eq "poweredOn") {
             $vm = Split-Path $path -Leaf
-            Write-Host "VM: $vm, Estado: $($response.power_state)"
+            Write-Host "Apagando: $vm, Estado Actual: $($response.power_state)"
             #Apaga todas las VMs
             $response = Invoke-RestMethod -Uri $url_get_poweronvm -Method PUT -Headers $headers -Body off -ContentType $contentStyle
         } 
