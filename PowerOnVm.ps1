@@ -82,6 +82,6 @@ do {
     }
 
     #Ask for rerun
-    $ask = Read-Host "¿Quieres encender otra VM? (Y/N)?"
+    $ask = Read-Host "Quieres encender otra VM? (Y/N)?"
 
 } while ($ask -eq 'Y' -or $ask -eq 'y')
