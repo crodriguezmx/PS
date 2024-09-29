@@ -20,7 +20,7 @@ if ($response -eq 'Y' -or $response -eq 'y') {
     #Shutdown all PowerOn VMs
     foreach ($vm in $vms) {
         # No apagar la VM r1.labon.casa
-        if ($vm.Name -ne 'r1.labon.casa') {
+        if ($vm.Name -ne 'vyos.labon.casa') {
             Write-Host "Apagando la maquina virtual $($vm.Name)..."
             Shutdown-VMGuest -VM $vm -Confirm:$false
         } else {
@@ -28,13 +28,13 @@ if ($response -eq 'Y' -or $response -eq 'y') {
         }
     }
     #PowerOff Host
+    $esxi1 = Get-VMHost -Name 'esx1.labon.casa'
     $esxi2 = Get-VMHost -Name 'esx2.labon.casa'
-    $esxi3 = Get-VMHost -Name 'esx3.labon.casa'
     
+    Write-Host "Apagando el host ESXi1..."
+    Stop-VMHost -VMHost $esxi1 -Confirm:$false -Force
     Write-Host "Apagando el host ESXi2..."
     Stop-VMHost -VMHost $esxi2 -Confirm:$false -Force
-    Write-Host "Apagando el host ESXi3..."
-    Stop-VMHost -VMHost $esxi3 -Confirm:$false -Force
 }
 
 else {
